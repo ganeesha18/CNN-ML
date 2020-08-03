@@ -113,21 +113,22 @@ classify_train = full_model.fit(X_train, y_train, batch_size=64,epochs=100,verbo
 
 full_model.save_weights('classification_complete.h5')
 
-accuracy = classify_train.history['acc']
-val_accuracy = classify_train.history['val_acc']
-loss = classify_train.history['loss']
-val_loss = classify_train.history['val_loss']
-epochs = range(len(accuracy))
-plt.plot(epochs, accuracy, 'bo', label='Training accuracy')
-plt.plot(epochs, val_accuracy, 'b', label='Validation accuracy')
-plt.title('Training and validation accuracy')
-plt.legend()
-plt.figure()
-plt.plot(epochs, loss, 'bo', label='Training loss')
-plt.plot(epochs, val_loss, 'b', label='Validation loss')
-plt.title('Training and validation loss')
-plt.legend()
-plt.show()
+##plot the accuracy and loss plots between training and validation data
+#accuracy = classify_train.history['accuracy']
+#val_accuracy = classify_train.history['val_accuracy']
+#loss = classify_train.history['loss']
+#val_loss = classify_train.history['val_loss']
+#epochs = range(len(accuracy))
+#plt.plot(epochs, accuracy, 'bo', label='Training accuracy')
+#plt.plot(epochs, val_accuracy, 'b', label='Validation accuracy')
+#plt.title('Training and validation accuracy')
+#plt.legend()
+#plt.figure()
+#plt.plot(epochs, loss, 'bo', label='Training loss')
+#plt.plot(epochs, val_loss, 'b', label='Validation loss')
+#plt.title('Training and validation loss')
+#plt.legend()
+#plt.show()
 
 test_eval = full_model.evaluate(X_test, y_test, verbose=0)
 
@@ -136,7 +137,6 @@ print('Test accuracy:', test_eval[1])
 
 predicted_classes = full_model.predict(X_test)
 
-predicted_classes = np.argmax(np.round(predicted_classes),axis=1)
 
 
 
